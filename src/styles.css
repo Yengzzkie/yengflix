@@ -1,0 +1,27 @@
+:root {
+  --light-background: linear-gradient(135deg, rgb(0, 208, 255), rgb(89, 219, 248), rgb(174, 234, 248));
+  --dark-background: linear-gradient(135deg, rgb(0, 19, 96), rgb(20, 34, 89), rgb(36, 47, 91));
+  --button-bg: #2e2e2e;
+  --header-height: 85px;
+  --dropshadow: 2px 3px 2px rgb(152, 152, 152);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  background: var(--light-background);
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+}
