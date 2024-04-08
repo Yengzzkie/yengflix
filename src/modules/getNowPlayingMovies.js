@@ -14,7 +14,7 @@ async function getNowPlayingMovies() { //fetch now playing movies
         options
       );
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
       return data.results;
     } catch (error) {
       console.error(error);

@@ -1,4 +1,4 @@
-import watchMovie from './watchMovie.js';
+import watchSeries from './watchSeries.js';
 
 // this is the main function in displaying the movies may it be the 
 // 'Popular' or 'Searched' movies by user
@@ -20,7 +20,7 @@ export default async function displayMovies(movies) {
   
         watchBtn.addEventListener("click", () => {
           app.innerHTML = "";
-          watchMovie(movie.title, movie.id);
+          watchSeries(movie.title, movie.id);
         });
         
         movieCard.append(movieImage, watchBtn);
