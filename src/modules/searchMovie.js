@@ -11,6 +11,7 @@ export default async function searchMovie() {
       );
       const data = await response.json();
       const searchResults = data.results;
+      console.log(searchResults)
       displayMovies(searchResults);
     } catch (error) {
       console.error(error);

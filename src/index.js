@@ -43,7 +43,7 @@ async function getTrendingTV() { //fetch now playing movies
       console.error(error);
     }
   }
-  displayPopularSeries();
+  // displayPopularSeries();
   
   async function searchSeries() {
     const searchQuery = searchMovieInput.value;
@@ -54,6 +54,7 @@ async function getTrendingTV() { //fetch now playing movies
       );
       const data = await response.json();
       const searchResults = data.results;
+      console.log(searchResults)
       displaySeries(searchResults);
     } catch (error) {
       console.error(error);

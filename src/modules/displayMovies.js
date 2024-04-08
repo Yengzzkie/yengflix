@@ -15,7 +15,15 @@ export default async function displayMovies(movies) {
         const movieCard = document.createElement("div");
         const watchBtn = document.createElement("button");
         const movieImage = document.createElement("img");
-        watchBtn.textContent = 'Watch';
+
+        const movieInfo = document.createElement('div')
+        const movieOverview = document.createElement('p');
+
+        movieInfo.setAttribute('id', 'movie-info');
+        movieInfo.innerHTML = `<h1>${movie.title}</h1>`;
+        movieOverview.textContent = `${movie.overview}`;
+        movieCard.setAttribute('id', 'movie-card')
+        watchBtn.innerHTML = `<i class="fa-solid fa-play"></i>`;
         movieImage.src = `${baseImgURL}${movie.poster_path}`;
   
         watchBtn.addEventListener("click", () => {
@@ -23,7 +31,8 @@ export default async function displayMovies(movies) {
           watchMovie(movie.title, movie.id);
         });
         
-        movieCard.append(movieImage, watchBtn);
+        movieInfo.append(movieOverview);
+        movieCard.append(movieImage, watchBtn, movieInfo);
         movieContainer.append(movieCard)
         app.append(movieContainer);
       });
