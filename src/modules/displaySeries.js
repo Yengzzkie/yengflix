@@ -1,8 +1,10 @@
 import watchSeries from './watchSeries.js';
 
-// this is the main function in displaying the movies may it be the 
-// 'Popular' or 'Searched' movies by user
-export default async function displayMovies(movies) {
+// i just copied the entire function from displayMovies because
+// TV series has different property for the title, instead it uses 'name' and
+// i don't know how to change the movie.title to movie.name when querying for
+// TV series :)
+export default async function displaySeries(movies) {
     try {
       const baseImgURL = "https://image.tmdb.org/t/p/w500/";
   
@@ -15,7 +17,15 @@ export default async function displayMovies(movies) {
         const movieCard = document.createElement("div");
         const watchBtn = document.createElement("button");
         const movieImage = document.createElement("img");
-        watchBtn.textContent = 'Watch';
+
+        const movieInfo = document.createElement('div')
+        const movieOverview = document.createElement('p');
+
+        movieInfo.setAttribute('id', 'movie-info');
+        movieInfo.innerHTML = `<h1>${movie.name}</h1>`;
+        movieOverview.textContent = `${movie.overview}`;
+        movieCard.setAttribute('id', 'movie-card')
+        watchBtn.innerHTML = `<i class="fa-solid fa-play"></i>`;
         movieImage.src = `${baseImgURL}${movie.poster_path}`;
   
         watchBtn.addEventListener("click", () => {
@@ -23,7 +33,8 @@ export default async function displayMovies(movies) {
           watchSeries(movie.name, movie.id);
         });
         
-        movieCard.append(movieImage, watchBtn);
+        movieInfo.append(movieOverview);
+        movieCard.append(movieImage, watchBtn, movieInfo);
         movieContainer.append(movieCard)
         app.append(movieContainer);
       });

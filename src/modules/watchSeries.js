@@ -1,4 +1,5 @@
 import displayNowPlayingMovies from './displayNowPlayingMovies.js';
+import displayPopularSeries from './displayPopularSeries.js';
 
 export default async function watchMovie(movieTitle, movieID) {
     try {
@@ -7,8 +8,6 @@ export default async function watchMovie(movieTitle, movieID) {
       const backBtn = document.createElement("button");
       backBtn.textContent = "Back";
       iframe.src = `https://vidsrc.xyz/embed/tv/${movieID}`;
-      iframe.width = "800px";
-      iframe.height = "450px";
       iframe.setAttribute("allowfullscreen", "true");
   
       movieContainer.textContent = `Title: ${movieTitle}, ID: ${movieID}`;
@@ -17,8 +16,9 @@ export default async function watchMovie(movieTitle, movieID) {
   
       backBtn.addEventListener("click", () => {
         app.innerHTML = "";
-        displayNowPlayingMovies();
+        displayPopularSeries(); 
       });
+
     } catch (error) {
       console.error(error);
     }

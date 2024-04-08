@@ -7,8 +7,6 @@ export default async function watchMovie(movieTitle, movieID) {
       const backBtn = document.createElement("button");
       backBtn.textContent = "Back";
       iframe.src = `https://2embed.org/embed/movie/${movieID}`;
-      iframe.width = "800px";
-      iframe.height = "450px";
       iframe.setAttribute("allowfullscreen", "true");
   
       movieContainer.textContent = `Title: ${movieTitle}, ID: ${movieID}`;
