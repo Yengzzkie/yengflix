@@ -15,7 +15,6 @@ export default async function displayMovies(movies) {
         const movieCard = document.createElement("div");
         const watchBtn = document.createElement("button");
         const movieImage = document.createElement("img");
-
         const movieInfo = document.createElement('div')
         const movieOverview = document.createElement('p');
 

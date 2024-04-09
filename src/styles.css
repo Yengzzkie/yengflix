@@ -40,8 +40,22 @@ header {
   padding: 0 2rem;
 
   #logo {
+    position: relative;
+    letter-spacing: 1.5px;
     color: hsl(1, 98%, 62%);
     margin-right: 2rem;
+  }
+
+  #logo::after {
+    position: absolute;
+    background: rgb(29 29 29);
+    content: '';
+    bottom: 0;
+    left: 0;
+    transform: translateY(-100%);
+    border-radius: 100%;
+    width: 100%;
+    height: 15%;
   }
 
   ul {
@@ -85,19 +99,26 @@ header {
     width: 100%;
     height: 100%;
     overflow: hidden;
+    transition: transform 0.8s ease;
 
     #movie-info {
       position: absolute;
       bottom: 0;
       left: 0;
-      width: 100%;
-      height: 30%;
       background-color: rgba(0, 0, 0, 0.614);
-      padding: 10px;
       color: white;
-      transform: translateY(30%);
-      transition: transform 0.8s;
+      width: 100%;
+      padding: 10px;
+      overflow-x: hidden; /* Hide horizontal scrollbar */
+      overflow-y: auto; /* Enable vertical scrollbar */
+      transform: translateY(100%);
+      transition: transform 0.8s ease;
     }
+    
+    #movie-info::-webkit-scrollbar {
+      display: none; /* Hide scrollbar for WebKit browsers */
+    }
+    
 
     h1 {
       color: #fff;
@@ -134,6 +155,10 @@ header {
     }
   }
 
+  #movie-card:hover {
+    transform: scale(1.1);
+  }
+
   #movie-card:hover img {
     filter: blur(3px);
   }
@@ -150,6 +175,19 @@ header {
 }
 
 iframe {
-  width: 100vw;
-  height: 600px;
+  width: 100%;
+  height: 70%;
+}
+
+#modal {
+  background: #2e2e2ec1;
+  border: none;
+  height: 90vh;
+  width: 90vw;
+  margin: auto;
+  padding: 10px 20px;
+}
+
+#modal::backdrop {
+  backdrop-filter: blur(5px);
 }

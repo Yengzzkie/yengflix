@@ -7,7 +7,7 @@ export default async function getPopularSeries() { //fetch now playing movies
         options
         );
         const data = await response.json();
-        console.log(data.results);
+        console.log(data);
         return data.results;
       } catch (error) {
         console.error(error);
