@@ -1,7 +1,6 @@
-import displayNowPlayingMovies from './displayNowPlayingMovies.js';
-
 export default async function watchMovie(movieTitle, movieID) {
     const modal = document.getElementById('modal');
+    modal.innerHTML = '';
     modal.showModal();
 
     try {
@@ -17,8 +16,7 @@ export default async function watchMovie(movieTitle, movieID) {
       modal.append(movieContainer, iframe);
   
       backBtn.addEventListener("click", () => {
-        app.innerHTML = "";
-        displayNowPlayingMovies();
+        modal.close();
       });
     } catch (error) {
       console.error(error);

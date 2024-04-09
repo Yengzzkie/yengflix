@@ -26,7 +26,7 @@ export default async function displayMovies(movies) {
         movieImage.src = `${baseImgURL}${movie.poster_path}`;
   
         watchBtn.addEventListener("click", () => {
-          app.innerHTML = "";
+          // app.innerHTML = "";
           watchMovie(movie.title, movie.id);
         });
         

@@ -29,7 +29,7 @@ export default async function displaySeries(movies) {
         movieImage.src = `${baseImgURL}${movie.poster_path}`;
   
         watchBtn.addEventListener("click", () => {
-          app.innerHTML = "";
+          // app.innerHTML = "";
           watchSeries(movie.name, movie.id);
         });
         
