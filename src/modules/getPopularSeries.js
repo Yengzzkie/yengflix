@@ -1,9 +1,10 @@
 import { options } from "./getNowPlayingMovies.js";
+import { currentPage } from "../index.js";
 
 export default async function getPopularSeries() { //fetch now playing movies
     try {
       const response = await fetch(
-        "https://api.themoviedb.org/3/trending/tv/day?language=en-US",
+        `https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=${currentPage}`,
         options
         );
         const data = await response.json();
