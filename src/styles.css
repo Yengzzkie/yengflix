@@ -99,11 +99,14 @@ header {
 #previous-page, #next-page {
   position: fixed;
   top: 50%;
-  background: transparent;
+  background: #2e2e2e;
   color: #ff4800;
-  font-size: 3.5rem;
+  font-size: 3rem;
   border: none;
-  z-index: 99999;
+  border-radius: 100%;
+  width: 2.5rem;
+  height: 2.5rem;
+  z-index: 9999;
   cursor: pointer;
   transition: all .1s linear;
 }
