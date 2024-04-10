@@ -1,3 +1,5 @@
+import { currentPage } from "../index.js";
+
 const options = {
     method: "GET",
     headers: {
@@ -10,11 +12,11 @@ const options = {
 async function getNowPlayingMovies() { //fetch now playing movies
     try {
       const response = await fetch(
-        "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1",
+        `https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${currentPage}`,
         options
       );
       const data = await response.json();
-      // console.log(data);
+      console.log(data);
       return data.results;
     } catch (error) {
       console.error(error);
