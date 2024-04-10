@@ -1,4 +1,3 @@
-import displayNowPlayingMovies from './displayNowPlayingMovies.js';
 import displayPopularSeries from './displayPopularSeries.js';
 
 export default async function watchMovie(movieTitle, movieID) {
