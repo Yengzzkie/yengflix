@@ -21,4 +21,4 @@ export default async function watchMovie(movieTitle, movieID) {
     } catch (error) {
       console.error(error);
     }
-  }
+  };
