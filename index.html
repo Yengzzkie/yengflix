@@ -8,28 +8,33 @@
     <title>YengFlix</title>
 <link rel="icon" href="favicon.png"><script defer src="main.js"></script></head>
 <body>
+    <h1 id="mobile-logo">YENGFLIX</h1>
 
     <header class="">
         <button id="hamburger"><i class="fa-solid fa-bars"></i></button>
         <h1 id="logo">YENGFLIX</h1>
         <nav>
             <ul>
-                <li id="home-btn">Home |</li>
-                <li id="popular-movies-btn">Popular Movies |</li>
-                <li id="tv-series-btn">Trending TV Series |</li>
-                <li id="about">About</li>
+                <li id="home-btn"><i class="fa-solid fa-house"></i> Home </li>
+                <!-- <li id="popular-movies-btn">Popular Movies |</li> -->
+                <li id="tv-series-btn"><i class="fa-solid fa-tv"></i> Trending TV Shows </li>
+                <li id="about"><i class="fa-solid fa-question"></i> FAQ</li>
             </ul>
         </nav>
         <div id="input-wrapper">
-            <input type="text" id="search-query">
+            <input type="text" id="search-query" placeholder="Enter movie or TV show title">
             <button id="search-movie-btn">Search Movies</button>
             <button id="search-series-btn">Search TV Series</button>
         </div>
     </header>
+
+    <button id="previous-page"><i class="fa-solid fa-angles-left"></i></button>
+    <button id="next-page"><i class="fa-solid fa-angles-right"></i></button>
+    <div id="page"></div>
     
     <dialog id="modal"></dialog>
     <div id="app"></div>
 
-    
+    <footer>All Rights Reserved | Yengzzkie DzignTech©</footer>
 </body>
 </html>
