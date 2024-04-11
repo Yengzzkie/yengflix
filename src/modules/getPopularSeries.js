@@ -3,6 +3,7 @@ import { getCurrentPage } from "./displayCurrentPage.js";
 
 export default async function getPopularSeries() { //fetch now playing movies
   let currentPage = getCurrentPage();
+  const page = document.getElementById("page");
 
     try {
       const response = await fetch(
@@ -10,7 +11,7 @@ export default async function getPopularSeries() { //fetch now playing movies
         options
         );
         const data = await response.json();
-        console.log(data);
+        page.textContent = `Page ${currentPage} of ${data.total_pages}`;
         return data.results;
       } catch (error) {
         console.error(error);

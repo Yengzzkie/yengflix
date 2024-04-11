@@ -17,8 +17,8 @@ export default async function displaySeries(movies) {
       const nextPageBtn = document.createElement('button');
 
       movieContainer.setAttribute('id', 'movie-container');
-      previousPageBtn.textContent = 'Previous Page'
-      nextPageBtn.textContent = 'Next Page';
+      previousPageBtn.innerHTML = '<i class="fa-solid fa-chevron-left"></i>'
+      nextPageBtn.innerHTML = '<i class="fa-solid fa-chevron-right"></i>';
       previousPageBtn.setAttribute('id', 'previous-page-btn')
       nextPageBtn.setAttribute('id', 'next-page-btn')
 

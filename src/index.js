@@ -11,6 +11,7 @@ const searchMovieBtn = document.getElementById("search-movie-btn");
 const searchSeriesBtn = document.getElementById("search-series-btn");
 const homeBtn = document.getElementById("home-btn");
 const tvSeriesBtn = document.getElementById("tv-series-btn");
+const nowPlayingMoviesBtn = document.getElementById('popular-movies-btn')
 const hamburger = document.getElementById("hamburger");
 const app = document.getElementById("app");
 
@@ -22,6 +23,7 @@ homeBtn.addEventListener("click", () => {
   displayNowPlayingMovies();
 });
 
+nowPlayingMoviesBtn.addEventListener('click', displayNowPlayingMovies);
 tvSeriesBtn.addEventListener("click", displayPopularSeries);
 searchSeriesBtn.addEventListener("click", searchSeries); // eventlistener for searching query for TV Series
 
@@ -31,7 +33,6 @@ hamburger.addEventListener("click", () => { // eventlistener for toggling the ha
   header.classList.toggle("active");
 });
 
-
 // SEARCH QUERY EVENTLISTENERS
 searchSeriesBtn.addEventListener("click", () => {
   if (searchMovieInput.value === "") {
@@ -40,7 +41,6 @@ searchSeriesBtn.addEventListener("click", () => {
     searchSeries();
   }
 });
-
 
 searchMovieBtn.addEventListener("click", () => {
   if (searchMovieInput.value === "") {

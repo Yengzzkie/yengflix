@@ -64,9 +64,26 @@ header {
     list-style: none;
 
     li {
+      position: relative;
       color: #fff;
       margin-right: 1rem;
       cursor: pointer;
+    }
+
+    li:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #fff;
+      height: 1px;
+      width: 0;
+      transition: width .2s linear;
+    }
+
+    li:hover::after {
+      width: 100%;
     }
   }
 
@@ -97,32 +114,29 @@ header {
   display: none;
 }
 
-#previous-page, #next-page {
-  display: none;
+#previous-page-btn, #next-page-btn {
   position: fixed;
   top: 50%;
-  background: #2e2e2e;
-  color: #ff4800;
-  font-size: 3rem;
+  background: #ff9225c1;
+  color: #fcefea;
+  font-size: 2rem;
   border: none;
-  border-radius: 100%;
-  width: 2.5rem;
-  height: 2.5rem;
+  padding: 10px 15px;
   z-index: 9999;
   cursor: pointer;
   transition: all .1s linear;
 }
 
-#previous-page:hover, #next-page:hover {
-  color: hsl(1, 98%, 62%);
-  transform: scale(1.4);
+#previous-page-btn:hover, #next-page-btn:hover {
+  color: hsl(0, 100%, 50%);
+  transform: scale(1.2);
 }
 
-#previous-page {
+#previous-page-btn {
   left: 2%;
 }
 
-#next-page {
+#next-page-btn {
   right: 2%;
 }
 
@@ -142,7 +156,7 @@ header {
   height: 100%;
   padding: 1rem 1rem 4rem 1rem;
 
-  #next-page-btn, #previous-page-btn {
+  /* #next-page-btn, #previous-page-btn {
     position: fixed;
     top: 50%;
   }
@@ -153,7 +167,7 @@ header {
 
   #previous-page-btn {
     left: 2%;
-  }
+  } */
 
   #movie-card {
     position: relative;
