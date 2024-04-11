@@ -19,6 +19,7 @@ async function getNowPlayingMovies() {
       options
     );
     const data = await response.json();
+    console.log(data)
     page.textContent = `Page ${currentPage} of ${data.total_pages}`;
     return data.results;
   } catch (error) {

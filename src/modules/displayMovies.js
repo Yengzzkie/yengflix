@@ -46,7 +46,7 @@ export default async function displayMovies(movies) {
   
         watchBtn.addEventListener("click", () => {
           app.innerHTML = "";
-          watchMovie(movie.title, movie.id);
+          watchMovie(movie.title, movie.id, movie.poster_path);
         });
         
         movieInfo.append(movieOverview);

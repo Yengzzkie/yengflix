@@ -1,20 +1,26 @@
 import displayNowPlayingMovies from "./displayNowPlayingMovies.js";
 
-export default async function watchMovie(movieTitle, movieID) {
+export default async function watchMovie(movieTitle, movieID, posterPath) {
   const titleHeader = document.getElementById("page");
   titleHeader.innerHTML = "";
+  const baseImgURL = "https://image.tmdb.org/t/p/original/";
 
   try {
-    const movieContainer = document.createElement("div");
+    const iframeContainer = document.createElement("div");
     const iframe = document.createElement("iframe");
     const backBtn = document.createElement("button");
-    backBtn.textContent = "Back";
+    const poster = document.createElement('img');
+
+    poster.src = `${baseImgURL}${posterPath}`;
+    poster.setAttribute('id', 'poster')
+    iframeContainer.setAttribute('id', 'iframe-container')
+    backBtn.innerHTML = '<i class="fa-solid fa-right-from-bracket"></i>';
     iframe.src = `https://2embed.org/embed/movie/${movieID}`;
     iframe.setAttribute("allowfullscreen", "true");
 
     titleHeader.textContent = movieTitle;
-    movieContainer.append(iframe, backBtn);
-    app.append(movieContainer);
+    iframeContainer.append(iframe, backBtn, poster);
+    app.append(iframeContainer);
 
     backBtn.addEventListener("click", () => {
       app.innerHTML = "";
