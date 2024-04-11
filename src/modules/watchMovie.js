@@ -1,6 +1,9 @@
 import displayNowPlayingMovies from "./displayNowPlayingMovies.js";
 
 export default async function watchMovie(movieTitle, movieID) {
+  const titleHeader = document.getElementById("page");
+  titleHeader.innerHTML = "";
+
   try {
     const movieContainer = document.createElement("div");
     const iframe = document.createElement("iframe");
@@ -9,9 +12,9 @@ export default async function watchMovie(movieTitle, movieID) {
     iframe.src = `https://2embed.org/embed/movie/${movieID}`;
     iframe.setAttribute("allowfullscreen", "true");
 
-    movieContainer.textContent = `Title: ${movieTitle}, ID: ${movieID}`;
-    movieContainer.append(backBtn);
-    app.append(movieContainer, iframe);
+    titleHeader.textContent = movieTitle;
+    movieContainer.append(iframe, backBtn);
+    app.append(movieContainer);
 
     backBtn.addEventListener("click", () => {
       app.innerHTML = "";

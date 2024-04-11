@@ -11,7 +11,14 @@ export default async function displaySeries(movies) {
       // Clear previous content
       app.innerHTML = "";
       const movieContainer = document.createElement('section');
+      const previousPageBtn = document.createElement('button');
+      const nextPageBtn = document.createElement('button');
+
       movieContainer.setAttribute('id', 'movie-container');
+      previousPageBtn.textContent = 'Previous Page'
+      nextPageBtn.textContent = 'Next Page';
+      previousPageBtn.setAttribute('id', 'previous-page-btn')
+      nextPageBtn.setAttribute('id', 'next-page-btn')
 
       movies.forEach((movie) => {
         const movieCard = document.createElement("div");
@@ -35,7 +42,7 @@ export default async function displaySeries(movies) {
         
         movieInfo.append(movieOverview);
         movieCard.append(movieImage, watchBtn, movieInfo);
-        movieContainer.append(movieCard)
+        movieContainer.append(movieCard, nextPageBtn, previousPageBtn)
         app.append(movieContainer);
       });
       

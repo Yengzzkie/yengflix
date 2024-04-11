@@ -98,6 +98,7 @@ header {
 }
 
 #previous-page, #next-page {
+  display: none;
   position: fixed;
   top: 50%;
   background: #2e2e2e;
@@ -133,12 +134,26 @@ header {
 }
 
 #movie-container {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 300px));
   justify-content: center;
   gap: 20px;
   height: 100%;
   padding: 1rem 1rem 4rem 1rem;
+
+  #next-page-btn, #previous-page-btn {
+    position: fixed;
+    top: 50%;
+  }
+
+  #next-page-btn {
+    right: 2%;
+  }
+
+  #previous-page-btn {
+    left: 2%;
+  }
 
   #movie-card {
     position: relative;
@@ -293,7 +308,7 @@ footer {
 
   #hamburger {
     display: block;
-    position: absolute; /* Change 'fixed' to 'absolute' */
+    position: fixed; /* Change 'fixed' to 'absolute' */
     top: 3%;
     right: 5%;
     background: transparent;
