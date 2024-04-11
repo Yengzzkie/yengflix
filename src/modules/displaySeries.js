@@ -1,4 +1,6 @@
 import watchSeries from './watchSeries.js';
+import displayPopularSeries from './displayPopularSeries.js';
+import { incrementPage, decrementPage } from './displayCurrentPage.js';
 
 // i just copied the entire function from displayMovies because
 // TV series has different property for the title, instead it uses 'name' and
@@ -19,6 +21,16 @@ export default async function displaySeries(movies) {
       nextPageBtn.textContent = 'Next Page';
       previousPageBtn.setAttribute('id', 'previous-page-btn')
       nextPageBtn.setAttribute('id', 'next-page-btn')
+
+      nextPageBtn.addEventListener("click", () => {
+        incrementPage();
+        displayPopularSeries();
+      });
+  
+      previousPageBtn.addEventListener("click", () => {
+        decrementPage();
+        displayPopularSeries();
+      });
 
       movies.forEach((movie) => {
         const movieCard = document.createElement("div");

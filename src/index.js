@@ -4,6 +4,7 @@ import displayPopularSeries from "./modules/displayPopularSeries.js";
 import searchMovie from "./modules/searchMovie.js";
 import searchSeries from "./modules/searchSeries.js";
 import { getNowPlayingMovies } from "./modules/getNowPlayingMovies.js";
+import { resetCurrentPage } from "./modules/displayCurrentPage.js";
 
 const searchMovieInput = document.getElementById("search-query");
 const searchMovieBtn = document.getElementById("search-movie-btn");
@@ -11,17 +12,11 @@ const searchSeriesBtn = document.getElementById("search-series-btn");
 const homeBtn = document.getElementById("home-btn");
 const tvSeriesBtn = document.getElementById("tv-series-btn");
 const hamburger = document.getElementById("hamburger");
-const nextPage = document.getElementById("next-page");
-const previousPage = document.getElementById("previous-page");
-const page = document.getElementById('page')
 const app = document.getElementById("app");
-
-let currentPage = 1;
-page.textContent = `Page ${currentPage} of `;
 
 // NAVIGATION EVENTLISTENERS
 homeBtn.addEventListener("click", () => {
-  currentPage = 1; // Reset currentPage to 1
+  resetCurrentPage();
   app.innerHTML = "";
   getNowPlayingMovies();
   displayNowPlayingMovies();
@@ -34,26 +29,6 @@ searchSeriesBtn.addEventListener("click", searchSeries); // eventlistener for se
 hamburger.addEventListener("click", () => { // eventlistener for toggling the hamburger menu
   const header = document.querySelector("header");
   header.classList.toggle("active");
-});
-
-// PAGE NAVIGATION EVENTLISTENERS
-nextPage.addEventListener("click", () => { // eventlistener for MOVIES result next page
-  currentPage++;
-  page.textContent = `Page ${currentPage} of `;
-  app.innerHTML = "";
-  getNowPlayingMovies();
-  displayNowPlayingMovies();
-});
-
-previousPage.addEventListener("click", () => { // eventlistener for MOVIES result previous page
-  if (currentPage > 1) {
-    // this condition will prevent the currentPage from going below 1
-    currentPage--;
-    page.textContent = `Page ${currentPage} of `;
-    app.innerHTML = "";
-    getNowPlayingMovies();
-    displayNowPlayingMovies();
-  }
 });
 
 
@@ -77,4 +52,4 @@ searchMovieBtn.addEventListener("click", () => {
 
 displayNowPlayingMovies(); //initilize the list of now playing movies on page load
 
-export { searchMovieInput, currentPage };
+export { searchMovieInput };

@@ -1,4 +1,4 @@
-import { currentPage } from "../index.js";
+import { getCurrentPage } from "./displayCurrentPage.js";
 
 const options = {
     method: "GET",
@@ -10,6 +10,8 @@ const options = {
   };
 
 async function getNowPlayingMovies() { //fetch now playing movies
+  let currentPage = getCurrentPage();
+
     try {
       const response = await fetch(
         `https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${currentPage}`,
