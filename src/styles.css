@@ -172,7 +172,7 @@ header {
       background-color: rgba(0, 0, 0, 0.614);
       color: white;
       width: 100%;
-      padding: 10px;
+      padding: 20px 10px;
       overflow-x: hidden; /* Hide horizontal scrollbar */
       overflow-y: auto; /* Enable vertical scrollbar */
       transform: translateY(100%);
@@ -220,7 +220,7 @@ header {
   }
 
   #movie-card:hover {
-    transform: scale(1.1);
+    transform: scale(1.03);
   }
 
   #movie-card:hover img {
@@ -232,7 +232,7 @@ header {
     height: 100%;
 
     p {
-      margin-top: 3rem;
+      margin-top: 1rem;
       visibility: visible;
     }
   }

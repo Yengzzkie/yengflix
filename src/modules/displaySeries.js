@@ -36,23 +36,26 @@ export default async function displaySeries(movies) {
         const movieCard = document.createElement("div");
         const watchBtn = document.createElement("button");
         const movieImage = document.createElement("img");
-
         const movieInfo = document.createElement('div')
         const movieOverview = document.createElement('p');
+        const movieReleaseDate = document.createElement('p');
+        const movieRating = document.createElement('p');
 
         movieInfo.setAttribute('id', 'movie-info');
         movieInfo.innerHTML = `<h1>${movie.name}</h1>`;
         movieOverview.textContent = `${movie.overview}`;
+        movieRating.innerHTML = `<b>Rating</b> : ${Math.floor(movie.vote_average)} / 10`;
+        movieReleaseDate.innerHTML = `<b>Released</b> : ${movie.first_air_date}`;
+        movieImage.src = `${baseImgURL}${movie.poster_path}`;
         movieCard.setAttribute('id', 'movie-card')
         watchBtn.innerHTML = `<i class="fa-solid fa-play"></i>`;
-        movieImage.src = `${baseImgURL}${movie.poster_path}`;
   
         watchBtn.addEventListener("click", () => {
           app.innerHTML = "";
-          watchSeries(movie.name, movie.id);
+          watchSeries(movie.name, movie.id, movie.backdrop_path);
         });
         
-        movieInfo.append(movieOverview);
+        movieInfo.append(movieOverview, movieReleaseDate, movieRating);
         movieCard.append(movieImage, watchBtn, movieInfo);
         movieContainer.append(movieCard, nextPageBtn, previousPageBtn)
         app.append(movieContainer);

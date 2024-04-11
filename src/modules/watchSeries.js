@@ -1,21 +1,26 @@
 import displayPopularSeries from './displayPopularSeries.js';
 
-export default async function watchSeries(movieTitle, movieID) {
-  const titleHeader = document.getElementById('page');
-  titleHeader.innerHTML = '';
+export default async function watchSeries(movieTitle, movieID, posterPath) {
+  const titleHeader = document.getElementById("page");
+  titleHeader.innerHTML = "";
+  const baseImgURL = "https://image.tmdb.org/t/p/original/";
 
-    try {
-      const movieContainer = document.createElement("div");
-      const iframe = document.createElement("iframe");
-      const backBtn = document.createElement("button");
+  try {
+    const iframeContainer = document.createElement("div");
+    const iframe = document.createElement("iframe");
+    const backBtn = document.createElement("button");
+    const poster = document.createElement('img');
 
-      backBtn.textContent = "Back";
-      iframe.src = `https://vidsrc.xyz/embed/tv/${movieID}`;
-      iframe.setAttribute("allowfullscreen", "true");
+    poster.src = `${baseImgURL}${posterPath}`;
+    poster.setAttribute('id', 'poster')
+    iframeContainer.setAttribute('id', 'iframe-container')
+    backBtn.innerHTML = '<i class="fa-solid fa-right-from-bracket"></i>';
+    iframe.src = `https://vidsrc.xyz/embed/tv/${movieID}`;
+    iframe.setAttribute("allowfullscreen", "true");
 
-      titleHeader.textContent = movieTitle;
-      movieContainer.append(iframe, backBtn);
-      app.append(movieContainer);
+    titleHeader.textContent = movieTitle;
+    iframeContainer.append(iframe, backBtn, poster);
+    app.append(iframeContainer);
   
       backBtn.addEventListener("click", () => {
         app.innerHTML = "";

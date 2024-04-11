@@ -11,6 +11,7 @@ export default async function getPopularSeries() { //fetch now playing movies
         options
         );
         const data = await response.json();
+        console.log(data)
         page.textContent = `Page ${currentPage} of ${data.total_pages}`;
         return data.results;
       } catch (error) {
