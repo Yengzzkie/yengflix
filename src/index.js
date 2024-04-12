@@ -5,12 +5,14 @@ import searchMovie from "./modules/searchMovie.js";
 import searchSeries from "./modules/searchSeries.js";
 import { getNowPlayingMovies } from "./modules/getNowPlayingMovies.js";
 import { resetCurrentPage } from "./modules/displayCurrentPage.js";
+import { displayMyList } from "./modules/addToMyList.js";
 
 const searchMovieInput = document.getElementById("search-query");
 const searchMovieBtn = document.getElementById("search-movie-btn");
 const searchSeriesBtn = document.getElementById("search-series-btn");
 const homeBtn = document.getElementById("home-btn");
 const tvSeriesBtn = document.getElementById("tv-series-btn");
+const myListBtn = document.getElementById('my-list')
 const nowPlayingMoviesBtn = document.getElementById('popular-movies-btn')
 const hamburger = document.getElementById("hamburger");
 const app = document.getElementById("app");
@@ -25,6 +27,7 @@ homeBtn.addEventListener("click", () => {
 
 nowPlayingMoviesBtn.addEventListener('click', displayNowPlayingMovies);
 tvSeriesBtn.addEventListener("click", displayPopularSeries);
+myListBtn.addEventListener('click', displayMyList);
 searchSeriesBtn.addEventListener("click", searchSeries); // eventlistener for searching query for TV Series
 
 // HAMBURGER EVENTLISTENER

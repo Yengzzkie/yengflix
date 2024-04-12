@@ -1,7 +1,7 @@
 import watchSeries from './watchSeries.js';
 import displayPopularSeries from './displayPopularSeries.js';
 import { incrementPage, decrementPage } from './displayCurrentPage.js';
-import addToMyList from './addToMyList.js';
+import { addToMyList } from './addToMyList.js';
 
 // i just copied the entire function from displayMovies because
 // TV series has different property for the title, instead it uses 'name' and
@@ -52,7 +52,7 @@ export default async function displaySeries(movies) {
         movieCard.setAttribute('id', 'movie-card')
         watchBtn.innerHTML = `<i class="fa-solid fa-play"></i>`;
         watchBtn.setAttribute('id', 'watch-button');
-        addToListBtn.textContent = '+'
+        addToListBtn.innerHTML = '<i class="fa-solid fa-bookmark"></i>'
         addToListBtn.setAttribute('id', 'add-to-list-button');
         
         watchBtn.addEventListener("click", () => {

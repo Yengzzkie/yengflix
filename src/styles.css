@@ -170,7 +170,7 @@ header {
       bottom: 0;
       left: 0;
       background-color: rgba(0, 0, 0, 0.614);
-      color: white;
+      color: #fff;
       width: 100%;
       padding: 20px 10px;
       overflow-x: hidden; /* Hide horizontal scrollbar */
@@ -197,8 +197,9 @@ header {
     button {
       position: absolute;
       background: orange;
-      width: 50px;
-      height: 50px;
+      color: rgba(50, 50, 50, 0.881);
+      width: 35px;
+      height: 35px;
       border-radius: 50%;
       border: none;
       box-shadow: 1px 1px 2px rgba(152, 152, 152, 0.891),
@@ -218,7 +219,12 @@ header {
     }
 
     #add-to-list-button {
-      bottom: 5%;
+      top: 15%;
+      right: 5%;
+    }
+
+    #delete-from-list {
+      top: 15%;
       right: 5%;
     }
 

@@ -1,7 +1,7 @@
 import watchMovie from './watchMovie.js';
 import displayNowPlayingMovies from './displayNowPlayingMovies.js';
 import { incrementPage, decrementPage } from './displayCurrentPage.js';
-import addToMyList from './addToMyList.js';
+import { addToMyList } from './addToMyList.js';
 
 // this is the main function in displaying the movies may it be the 
 // 'Popular' or 'Searched' movies by user
@@ -50,7 +50,7 @@ export default async function displayMovies(movies) {
         movieCard.setAttribute('id', 'movie-card')
         watchBtn.innerHTML = `<i class="fa-solid fa-play"></i>`;
         watchBtn.setAttribute('id', 'watch-button');
-        addToListBtn.textContent = '+'
+        addToListBtn.innerHTML = '<i class="fa-solid fa-bookmark"></i>'
         addToListBtn.setAttribute('id', 'add-to-list-button');
   
         watchBtn.addEventListener("click", () => {
@@ -59,8 +59,8 @@ export default async function displayMovies(movies) {
         });
 
         addToListBtn.addEventListener("click", () => {
-          const itemTitle = movie.title ? movie.title : movie.name; //checks if the element is a "movie" or "tv"
-          addToMyList({movie, title: itemTitle, type: "movie"}); 
+          const title = movie.title ? movie.title : movie.name; //checks if the element is a "movie" or "tv"
+          addToMyList({movie, title: title, type: "movie"}); 
          });
         
         movieInfo.append(movieOverview, movieReleaseDate, movieRating);
