@@ -1,6 +1,7 @@
 import watchMovie from './watchMovie.js';
 import displayNowPlayingMovies from './displayNowPlayingMovies.js';
 import { incrementPage, decrementPage } from './displayCurrentPage.js';
+import addToMyList from './addToMyList.js';
 
 // this is the main function in displaying the movies may it be the 
 // 'Popular' or 'Searched' movies by user
@@ -33,6 +34,7 @@ export default async function displayMovies(movies) {
       movies.forEach((movie) => {
         const movieCard = document.createElement("div");
         const watchBtn = document.createElement("button");
+        const addToListBtn = document.createElement('button');
         const movieImage = document.createElement("img");
         const movieInfo = document.createElement('div')
         const movieOverview = document.createElement('p');
@@ -47,14 +49,22 @@ export default async function displayMovies(movies) {
         movieImage.src = `${baseImgURL}${movie.poster_path}`;
         movieCard.setAttribute('id', 'movie-card')
         watchBtn.innerHTML = `<i class="fa-solid fa-play"></i>`;
+        watchBtn.setAttribute('id', 'watch-button');
+        addToListBtn.textContent = '+'
+        addToListBtn.setAttribute('id', 'add-to-list-button');
   
         watchBtn.addEventListener("click", () => {
           app.innerHTML = "";
           watchMovie(movie.title, movie.id, movie.backdrop_path);
         });
+
+        addToListBtn.addEventListener("click", () => {
+          const itemTitle = movie.title ? movie.title : movie.name; //checks if the element is a "movie" or "tv"
+          addToMyList({movie, title: itemTitle, type: "movie"}); 
+         });
         
         movieInfo.append(movieOverview, movieReleaseDate, movieRating);
-        movieCard.append(movieImage, watchBtn, movieInfo);
+        movieCard.append(movieImage, watchBtn, addToListBtn, movieInfo);
         movieContainer.append(movieCard, nextPageBtn, previousPageBtn)
         app.append(movieContainer);
       });

@@ -1,6 +1,7 @@
 import watchSeries from './watchSeries.js';
 import displayPopularSeries from './displayPopularSeries.js';
 import { incrementPage, decrementPage } from './displayCurrentPage.js';
+import addToMyList from './addToMyList.js';
 
 // i just copied the entire function from displayMovies because
 // TV series has different property for the title, instead it uses 'name' and
@@ -35,6 +36,7 @@ export default async function displaySeries(movies) {
       movies.forEach((movie) => {
         const movieCard = document.createElement("div");
         const watchBtn = document.createElement("button");
+        const addToListBtn = document.createElement('button');
         const movieImage = document.createElement("img");
         const movieInfo = document.createElement('div')
         const movieOverview = document.createElement('p');
@@ -49,14 +51,22 @@ export default async function displaySeries(movies) {
         movieImage.src = `${baseImgURL}${movie.poster_path}`;
         movieCard.setAttribute('id', 'movie-card')
         watchBtn.innerHTML = `<i class="fa-solid fa-play"></i>`;
-  
+        watchBtn.setAttribute('id', 'watch-button');
+        addToListBtn.textContent = '+'
+        addToListBtn.setAttribute('id', 'add-to-list-button');
+        
         watchBtn.addEventListener("click", () => {
           app.innerHTML = "";
           watchSeries(movie.name, movie.id, movie.backdrop_path);
         });
+
+        addToListBtn.addEventListener("click", () => {
+          const itemTitle = movie.title ? movie.title : movie.name; //checks if the element is a "movie" or "tv"
+          addToMyList({movie, title: itemTitle, type: "tv"}); 
+         });
         
         movieInfo.append(movieOverview, movieReleaseDate, movieRating);
-        movieCard.append(movieImage, watchBtn, movieInfo);
+        movieCard.append(movieImage, watchBtn, addToListBtn, movieInfo);
         movieContainer.append(movieCard, nextPageBtn, previousPageBtn)
         app.append(movieContainer);
       });
