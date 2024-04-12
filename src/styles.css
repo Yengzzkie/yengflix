@@ -196,7 +196,7 @@ header {
 
     button {
       position: absolute;
-      bottom: 5%;
+      top: 5%;
       right: 5%;
       background: orange;
       width: 50px;
@@ -370,6 +370,14 @@ footer {
 
   #movie-container {
     grid-template-columns: repeat(auto-fit, minmax(150px, 150px));
+
+    #movie-card  {
+
+      button {
+        width: 35px;
+        height: 35px;
+      }
+    }
   }
 
   #movie-info {
