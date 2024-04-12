@@ -35,6 +35,7 @@ export default async function displaySeries(movies) {
 
       movies.forEach((movie) => {
         const movieCard = document.createElement("div");
+        const btnWrapper = document.createElement("div");
         const watchBtn = document.createElement("button");
         const addToListBtn = document.createElement('button');
         const movieImage = document.createElement("img");
@@ -50,6 +51,7 @@ export default async function displaySeries(movies) {
         movieReleaseDate.innerHTML = `<b>Released</b> : ${movie.first_air_date}`;
         movieImage.src = `${baseImgURL}${movie.poster_path}`;
         movieCard.setAttribute('id', 'movie-card')
+        btnWrapper.setAttribute('id', 'button-wrapper');
         watchBtn.innerHTML = `<i class="fa-solid fa-play"></i>`;
         watchBtn.setAttribute('id', 'watch-button');
         addToListBtn.innerHTML = '<i class="fa-solid fa-bookmark"></i>'
@@ -66,7 +68,8 @@ export default async function displaySeries(movies) {
          });
         
         movieInfo.append(movieOverview, movieReleaseDate, movieRating);
-        movieCard.append(movieImage, watchBtn, addToListBtn, movieInfo);
+        btnWrapper.append(watchBtn, addToListBtn);
+        movieCard.append(movieImage, btnWrapper, movieInfo);
         movieContainer.append(movieCard, nextPageBtn, previousPageBtn)
         app.append(movieContainer);
       });

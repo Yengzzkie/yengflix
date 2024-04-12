@@ -30,13 +30,14 @@ async function displayMyList() {
     const baseImgURL = "https://image.tmdb.org/t/p/w500/";
 
     app.innerHTML = "";
-    const movieContainer = document.createElement('section');
-    movieContainer.setAttribute('id', 'movie-container');
+    const movieContainer = document.createElement("section");
+    movieContainer.setAttribute("id", "movie-container");
 
     myList.forEach((list) => {
       const movieCard = document.createElement("div");
+      const btnWrapper = document.createElement("div");
       const watchBtn = document.createElement("button");
-      const deleteFromListBtn = document.createElement('button');
+      const deleteFromListBtn = document.createElement("button");
       const movieImage = document.createElement("img");
       const movieInfo = document.createElement("div");
       const movieOverview = document.createElement("p");
@@ -46,10 +47,13 @@ async function displayMyList() {
       movieInfo.setAttribute("id", "movie-info");
       movieInfo.innerHTML = `<h1>${list.title}</h1>`;
       movieOverview.textContent = `${list.overview}`;
-      movieRating.innerHTML = `<b>Rating</b> : ${Math.floor(list.vote_average)} / 10`;
+      movieRating.innerHTML = `<b>Rating</b> : ${Math.floor(
+        list.vote_average
+      )} / 10`;
       movieReleaseDate.innerHTML = `<b>Released</b> : ${list.release_date}`;
       movieImage.src = `${baseImgURL}${list.poster}`;
       movieCard.setAttribute("id", "movie-card");
+      btnWrapper.setAttribute('id', 'button-wrapper');
       watchBtn.innerHTML = `<i class="fa-solid fa-play"></i>`;
       watchBtn.setAttribute("id", "watch-button");
       deleteFromListBtn.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
@@ -57,7 +61,8 @@ async function displayMyList() {
       console.log(list);
 
       movieInfo.append(movieOverview, movieReleaseDate, movieRating);
-      movieCard.append(movieImage, watchBtn, deleteFromListBtn, movieInfo);
+      btnWrapper.append(watchBtn, deleteFromListBtn);
+      movieCard.append(movieImage, movieInfo, btnWrapper);
       movieContainer.append(movieCard);
       app.append(movieContainer);
     });

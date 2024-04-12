@@ -194,38 +194,47 @@ header {
       transition: filter 0.5s ease;
     }
 
-    button {
+    #button-wrapper {
       position: absolute;
-      background: orange;
-      color: rgba(50, 50, 50, 0.881);
-      width: 35px;
-      height: 35px;
-      border-radius: 50%;
-      border: none;
-      box-shadow: 1px 1px 2px rgba(152, 152, 152, 0.891),
-        -1px -1px 2px rgba(255, 255, 255, 0.882);
-      transition: transform 0.5s ease;
-      cursor: pointer;
-      z-index: 999;
-    }
+      display: flex;
+      flex-direction: column;
+      top: 2%;
+      right: 2%;
+      z-index: 9999;
 
-    button:hover {
-      transform: scale(1.2);
-    }
-
-    #watch-button {
-      top: 5%;
-      right: 5%;
-    }
-
-    #add-to-list-button {
-      top: 15%;
-      right: 5%;
-    }
-
-    #delete-from-list {
-      top: 15%;
-      right: 5%;
+      button {
+        background: orange;
+        color: rgba(50, 50, 50, 0.881);
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        border: none;
+        margin: 5px;
+        box-shadow: 1px 1px 2px rgba(152, 152, 152, 0.891),
+          -1px -1px 2px rgba(255, 255, 255, 0.882);
+        transition: transform 0.5s ease;
+        cursor: pointer;
+        z-index: 999;
+      }
+  
+      button:hover {
+        transform: scale(1.2);
+      }
+  
+      #watch-button {
+        top: 5%;
+        right: 5%;
+      }
+  
+      #add-to-list-button {
+        top: 15%;
+        right: 5%;
+      }
+  
+      #delete-from-list {
+        top: 15%;
+        right: 5%;
+      }
     }
 
     p {
