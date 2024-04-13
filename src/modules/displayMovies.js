@@ -1,7 +1,7 @@
 import watchMovie from './watchMovie.js';
 import displayNowPlayingMovies from './displayNowPlayingMovies.js';
 import { incrementPage, decrementPage } from './displayCurrentPage.js';
-import { addToMyList } from './addToMyList.js';
+import addToMyList from './addToMyList.js';
 
 // this is the main function in displaying the movies may it be the
 // 'Popular' or 'Searched' movies by user
