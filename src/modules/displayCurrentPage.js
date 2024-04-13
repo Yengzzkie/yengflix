@@ -17,7 +17,9 @@ function decrementPage() {
 }
 
 function resetCurrentPage() {
-    currentPage = 1;
-  }
+  currentPage = 1;
+}
 
-export { currentPage, getCurrentPage, incrementPage, decrementPage, resetCurrentPage };
+export {
+ currentPage, getCurrentPage, incrementPage, decrementPage, resetCurrentPage 
+};
