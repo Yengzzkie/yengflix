@@ -5,7 +5,7 @@ import searchMovie from "./modules/searchMovie.js";
 import searchSeries from "./modules/searchSeries.js";
 import { getNowPlayingMovies } from "./modules/getNowPlayingMovies.js";
 import { resetCurrentPage } from "./modules/displayCurrentPage.js";
-import { displayMyList } from "./modules/addToMyList.js";
+import displayMyList from "./modules/displayMyList.js";
 
 const searchMovieInput = document.getElementById("search-query");
 const searchMovieBtn = document.getElementById("search-movie-btn");
