@@ -29,14 +29,23 @@ export default function addToMyList({ movie, title, type }) {
 
 async function displayMyList() {
   try {
-    const myList = JSON.parse(localStorage.getItem("myList"));
+    const myList = JSON.parse(localStorage.getItem("myList")) || [];
     const baseImgURL = "https://image.tmdb.org/t/p/w500/";
 
     app.innerHTML = "";
     const movieContainer = document.createElement("section");
     movieContainer.setAttribute("id", "movie-container");
 
-    myList.forEach((movie) => {
+    if (myList.length === 0) {
+      const emptyText = document.createElement('h1');
+      emptyText.innerHTML = 'Your list is empty <i class="fa-solid fa-broom"></i>';
+      app.append(emptyText)
+    }
+  
+
+    console.log(myList)
+
+    myList.forEach((movie, index) => {
       const movieCard = document.createElement("div");
       const btnWrapper = document.createElement("div");
       const watchBtn = document.createElement("button");
@@ -61,12 +70,17 @@ async function displayMyList() {
       watchBtn.setAttribute("id", "watch-button");
       deleteFromListBtn.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
       deleteFromListBtn.setAttribute("id", "delete-from-list");
-    console.log(myList)
+    
 
       watchBtn.addEventListener('click', () => {
         app.innerHTML = '';
         movie.type === 'movie' ? watchMovie(movie.title, movie.id, movie.backdrop_path) : watchSeries(movie.name, movie.id, movie.backdrop_path);
       })
+
+      deleteFromListBtn.addEventListener("click", () => {
+        deleteFromMyList(index);
+    });
+    
 
       movieInfo.append(movieOverview, movieReleaseDate, movieRating);
       btnWrapper.append(watchBtn, deleteFromListBtn);
@@ -80,5 +94,18 @@ async function displayMyList() {
 }
 
 displayMyList();
+
+
+
+function deleteFromMyList(index) {
+  const myList = JSON.parse(localStorage.getItem("myList")) || [];
+
+  myList.splice(index, 1);
+
+  localStorage.setItem('myList', JSON.stringify(myList)); // Corrected: Passing myList instead of 'myList'
+  displayMyList();
+
+}
+
 
 export { addToMyList, displayMyList };
