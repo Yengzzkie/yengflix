@@ -54,7 +54,7 @@ export default async function displaySeries(movies) {
         btnWrapper.setAttribute('id', 'button-wrapper');
         watchBtn.innerHTML = `<i class="fa-solid fa-play"></i>`;
         watchBtn.setAttribute('id', 'watch-button');
-        addToListBtn.innerHTML = '<i class="fa-solid fa-bookmark"></i>'
+        addToListBtn.innerHTML = '<i class="fa-solid fa-heart"></i>'
         addToListBtn.setAttribute('id', 'add-to-list-button');
         
         watchBtn.addEventListener("click", () => {

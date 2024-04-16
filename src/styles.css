@@ -9,6 +9,7 @@
   );
   --dark-background: linear-gradient(135deg, rgb(35 35 35), rgb(54 54 54));
   --dropshadow: 1px 1px 2px rgba(162, 162, 162, 0.511);
+  --red-background: hsl(0, 100%, 50%);
 }
 
 * {
@@ -58,7 +59,7 @@ header {
   #logo {
     position: relative;
     letter-spacing: 1.2px;
-    color: hsl(1, 98%, 62%);
+    color: var(--red-background);
   }
 
   #logo::after {
@@ -74,7 +75,9 @@ header {
   }
 
   nav {
+    width: 100%;
     margin-left: 10px;
+    padding: 0 1rem;
   }
 
   ul {
@@ -116,6 +119,8 @@ header {
       width: auto;
 
       input {
+        border: none;
+        border-radius: 5px;
         width: 200px;
         padding: 5px;
         margin-right: 5px;
@@ -133,15 +138,22 @@ header {
         right: 8%;
         top: 50%;
         transform: translateY(-50%);
+        cursor: pointer;
       }
     }
 
     button {
       border: none;
+      border-radius: 5px;
       padding: 5px;
       width: 150px;
       margin-right: 5px;
       cursor: pointer;
+    }
+
+    button:hover, button:active {
+      color: #fff;
+      background: var(--red-background);
     }
   }
 }
@@ -173,7 +185,7 @@ header {
 #previous-page-btn:hover,
 #next-page-btn:hover {
   background: #d6d6d6c8;
-  color: hsl(0, 100%, 50%);
+  color: var(--red-background);
   transform: translateY(-50%);
 }
 
@@ -205,6 +217,8 @@ header {
     position: relative;
     display: flex;
     justify-content: center;
+    border: 3px solid #fff;
+    border-radius: 15px;
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -262,6 +276,7 @@ header {
       }
 
       button:hover {
+        color: var(--red-background);
         transform: scale(1.2);
       }
 
@@ -355,33 +370,46 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    top: 0;
+    bottom: 0;
     left: 0;
-    transform: translateX(-100%);
-    background: linear-gradient(
+    /* transform: translateY(-100%); */
+    /* background: linear-gradient(
       90deg,
       rgb(29, 29, 29),
       rgba(29, 29, 29, 0.95),
       rgba(29, 29, 29, 0.85),
       rgba(29, 29, 29, 0.65)
-    );
-    backdrop-filter: blur(5px);
-    height: 100vh;
-    width: 250px;
+    ); */
+    /* backdrop-filter: blur(5px); */
+    height: 60px;
+    width: 100vw;
     padding: 1rem 0;
     z-index: 99999;
-    transition: transform 0.3s linear;
+    transition: height 0.3s linear;
 
     #logo {
+      display: none;
       margin: none;
     }
 
     ul {
-      flex-direction: column;
-      margin: 10px 0;
+      /* flex-direction: column; */
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 0 2rem;
+      /* margin: 50px 0; */
 
       li {
-        margin-bottom: 8px;
+        margin-bottom: 25px;
+
+        span {
+          display: none;
+        }
+
+        i:hover {
+          color: var(--red-background);
+        }
       }
     }
 
@@ -405,7 +433,15 @@ footer {
   }
 
   header.active {
-    transform: translateX(0);
+    background: linear-gradient(
+      rgb(29, 29, 29),
+      rgba(29, 29, 29, 0.95),
+      rgba(29, 29, 29, 0.85),
+      rgba(29, 29, 29, 0.65)
+    );
+    backdrop-filter: blur(5px);
+    height: 250px;
+    /* transform: translateY(0); */
   }
 
   #hamburger {
@@ -425,7 +461,7 @@ footer {
     position: relative;
     display: block;
     background: rgb(29 29 29);
-    color: hsl(1, 98%, 62%);
+    color: var(--red-background);
     padding: 1rem;
   }
 

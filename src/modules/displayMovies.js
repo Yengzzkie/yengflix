@@ -45,14 +45,14 @@ export default async function displayMovies(movies) {
       movieInfo.setAttribute('id', 'movie-info');
       movieInfo.innerHTML = `<h1>${movie.title}</h1>`;
       movieOverview.textContent = `${movie.overview}`;
-      movieRating.innerHTML = `<b>Rating</b> : ${Math.floor(movie.vote_average)} / 10`;
-      movieReleaseDate.innerHTML = `<b>Released</b> : ${movie.release_date}`;
+      movieRating.innerHTML = `<i class="fa-solid fa-star"></i>  :  ${Math.floor(movie.vote_average)} / 10`;
+      movieReleaseDate.innerHTML = `<i class="fa-solid fa-calendar-days"></i>  :  ${movie.release_date}`;
       movieImage.src = `${baseImgURL}${movie.poster_path}`;
       movieCard.setAttribute('id', 'movie-card');
       btnWrapper.setAttribute('id', 'button-wrapper');
       watchBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
       watchBtn.setAttribute('id', 'watch-button');
-      addToListBtn.innerHTML = '<i class="fa-solid fa-bookmark"></i>';
+      addToListBtn.innerHTML = '<i class="fa-solid fa-heart"></i>';
       addToListBtn.setAttribute('id', 'add-to-list-button');
 
       watchBtn.addEventListener('click', () => {
