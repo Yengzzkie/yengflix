@@ -89,11 +89,6 @@ header {
       color: #fff;
       margin-right: 1rem;
       cursor: pointer;
-
-      /* hides the FA icons on larger screens */
-      .fa-solid { 
-        display: none;
-      } 
     }
 
     li:after {
