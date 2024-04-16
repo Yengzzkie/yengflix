@@ -17,7 +17,7 @@ const nowPlayingMoviesBtn = document.getElementById('popular-movies-btn');
 const hamburger = document.getElementById('hamburger');
 const header = document.querySelector('header');
 const clearField = document.getElementById('clear-field');
-const logo = document.getElementById('logo')
+const logo = document.getElementById('mobile-logo')
 const app = document.getElementById('app');
 
 // NAVIGATION EVENTLISTENERS
