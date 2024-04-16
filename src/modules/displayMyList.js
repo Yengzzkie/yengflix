@@ -31,8 +31,8 @@ export default async function displayMyList() {
       movieInfo.setAttribute('id', 'movie-info');
       movieInfo.innerHTML = `<h1>${movie.title}</h1>`;
       movieOverview.textContent = `${movie.overview}`;
-      movieRating.innerHTML = `<b>Rating</b> : ${Math.floor(movie.vote_average)} / 10`;
-      movieReleaseDate.innerHTML = `<b>Released</b> : ${movie.release_date}`;
+      movieRating.innerHTML = `<i class="fa-solid fa-star"></i>  :  ${Math.floor(movie.vote_average)} / 10`;
+      movieReleaseDate.innerHTML = `<i class="fa-solid fa-calendar-days"></i>  :  ${movie.release_date}`;
       movieImage.src = `${baseImgURL}${movie.poster}`;
       movieCard.setAttribute('id', 'movie-card');
       btnWrapper.setAttribute('id', 'button-wrapper');

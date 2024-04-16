@@ -47,8 +47,8 @@ export default async function displaySeries(movies) {
         movieInfo.setAttribute('id', 'movie-info');
         movieInfo.innerHTML = `<h1>${movie.name}</h1>`;
         movieOverview.textContent = `${movie.overview}`;
-        movieRating.innerHTML = `<b>Rating</b> : ${Math.floor(movie.vote_average)} / 10`;
-        movieReleaseDate.innerHTML = `<b>Released</b> : ${movie.first_air_date}`;
+        movieRating.innerHTML = `<i class="fa-solid fa-star"></i>  :  ${Math.floor(movie.vote_average)} / 10`;
+        movieReleaseDate.innerHTML = `<i class="fa-solid fa-calendar-days"></i>  :  ${movie.first_air_date}`;
         movieImage.src = `${baseImgURL}${movie.poster_path}`;
         movieCard.setAttribute('id', 'movie-card')
         btnWrapper.setAttribute('id', 'button-wrapper');
