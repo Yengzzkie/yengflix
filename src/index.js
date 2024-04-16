@@ -15,6 +15,9 @@ const tvSeriesBtn = document.getElementById('tv-series-btn');
 const myListBtn = document.getElementById('my-list');
 const nowPlayingMoviesBtn = document.getElementById('popular-movies-btn');
 const hamburger = document.getElementById('hamburger');
+const header = document.querySelector('header');
+const clearField = document.getElementById('clear-field');
+const logo = document.getElementById('logo')
 const app = document.getElementById('app');
 
 // NAVIGATION EVENTLISTENERS
@@ -25,6 +28,13 @@ homeBtn.addEventListener('click', () => {
   displayNowPlayingMovies();
 });
 
+logo.addEventListener('click', () => {
+  resetCurrentPage();
+  app.innerHTML = '';
+  getNowPlayingMovies();
+  displayNowPlayingMovies();
+})
+
 nowPlayingMoviesBtn.addEventListener('click', displayNowPlayingMovies);
 tvSeriesBtn.addEventListener('click', displayPopularSeries);
 myListBtn.addEventListener('click', displayMyList);
@@ -32,7 +42,6 @@ searchSeriesBtn.addEventListener('click', searchSeries); // eventlistener for se
 
 // HAMBURGER EVENTLISTENER
 hamburger.addEventListener('click', () => { // eventlistener for toggling the hamburger menu
-  const header = document.querySelector('header');
   header.classList.toggle('active');
 });
 
@@ -42,6 +51,7 @@ searchSeriesBtn.addEventListener('click', () => {
     alert('Please enter TV show title');
   } else {
     searchSeries();
+    header.classList.toggle('active')
   }
 });
 
@@ -50,8 +60,13 @@ searchMovieBtn.addEventListener('click', () => {
     alert('Please enter movie title');
   } else {
     searchMovie();
+    header.classList.toggle('active')
   }
 });
+
+clearField.addEventListener('click', () => {
+  searchMovieInput.value = '';
+})
 
 displayNowPlayingMovies(); // initilize the list of now playing movies on page load
 

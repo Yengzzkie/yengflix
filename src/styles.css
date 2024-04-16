@@ -50,8 +50,9 @@ body {
 header {
   display: flex;
   align-items: center;
-  height: 100px;
   background: rgb(29 29 29);
+  font-weight: 300;
+  height: 100px;
   padding: 0 2rem;
 
   #logo {
@@ -63,7 +64,7 @@ header {
   #logo::after {
     position: absolute;
     background: rgb(29 29 29);
-    content: '';
+    content: "";
     bottom: 0;
     left: 0;
     transform: translateY(-100%);
@@ -88,7 +89,7 @@ header {
     }
 
     li:after {
-      content: '';
+      content: "";
       position: absolute;
       bottom: 0;
       left: 50%;
@@ -96,7 +97,7 @@ header {
       background: #fff;
       height: 1px;
       width: 0;
-      transition: width .2s linear;
+      transition: width 0.2s linear;
     }
 
     li:hover::after {
@@ -106,17 +107,40 @@ header {
 
   #input-wrapper {
     position: absolute;
+    display: flex;
     right: 2%;
 
-    input {
-      width: 200px;
-      padding: 5px;
+    div {
+      position: relative;
+      height: auto;
+      width: auto;
+
+      input {
+        width: 200px;
+        padding: 5px;
+        margin-right: 5px;
+      }
+
+      input:not(:placeholder-shown):valid ~ span {
+        visibility: visible;
+      }
+
+      span {
+        visibility: hidden;
+        position: absolute;
+        font-size: .8rem;
+        color: rgb(140, 140, 140);
+        right: 8%;
+        top: 50%;
+        transform: translateY(-50%);
+      }
     }
 
     button {
       border: none;
       padding: 5px;
       width: 150px;
+      margin-right: 5px;
       cursor: pointer;
     }
   }
@@ -126,27 +150,28 @@ header {
   display: none;
 }
 
-
 #mobile-logo {
   display: none;
 }
 
-#previous-page-btn, #next-page-btn {
+#previous-page-btn,
+#next-page-btn {
   position: fixed;
   top: 50%;
   transform: translateY(-50%);
-  background: #e6e6e65b;
-  color: #fcefea;
+  background: #c2c2c2aa;
+  color: #fff;
   font-size: 2rem;
   border: none;
-  height: 50vh;
+  /* height: 50px; */
   padding: 10px 8px;
   z-index: 9999;
   cursor: pointer;
-  transition: all .1s linear;
+  transition: all 0.1s linear;
 }
 
-#previous-page-btn:hover, #next-page-btn:hover {
+#previous-page-btn:hover,
+#next-page-btn:hover {
   background: #d6d6d6c8;
   color: hsl(0, 100%, 50%);
   transform: translateY(-50%);
@@ -198,11 +223,10 @@ header {
       transform: translateY(100%);
       transition: transform 0.8s ease;
     }
-    
+
     #movie-info::-webkit-scrollbar {
       display: none; /* Hide scrollbar for WebKit browsers */
     }
-    
 
     h1 {
       color: #fff;
@@ -236,21 +260,21 @@ header {
         cursor: pointer;
         z-index: 999;
       }
-  
+
       button:hover {
         transform: scale(1.2);
       }
-  
+
       #watch-button {
         top: 5%;
         right: 5%;
       }
-  
+
       #add-to-list-button {
         top: 15%;
         right: 5%;
       }
-  
+
       #delete-from-list {
         top: 15%;
         right: 5%;
@@ -295,7 +319,7 @@ header {
     border: none;
     padding: 10px;
     transform: rotate(180deg);
-    transition: transform .3s linear;
+    transition: transform 0.3s linear;
     cursor: pointer;
   }
 
@@ -325,7 +349,6 @@ footer {
   z-index: 9999;
 }
 
-
 @media screen and (max-width: 1024px) {
   header {
     position: fixed;
@@ -335,18 +358,24 @@ footer {
     top: 0;
     left: 0;
     transform: translateX(-100%);
-    background: linear-gradient(90deg, rgb(29, 29, 29), rgba(29, 29, 29, 0.749), rgba(29, 29, 29, 0.601), rgba(29, 29, 29, 0.152)) ;
+    background: linear-gradient(
+      90deg,
+      rgb(29, 29, 29),
+      rgba(29, 29, 29, 0.95),
+      rgba(29, 29, 29, 0.85),
+      rgba(29, 29, 29, 0.65)
+    );
     backdrop-filter: blur(5px);
     height: 100vh;
     width: 250px;
     padding: 1rem 0;
     z-index: 99999;
-    transition: transform .3s linear;
-  
+    transition: transform 0.3s linear;
+
     #logo {
       margin: none;
     }
-  
+
     ul {
       flex-direction: column;
       margin: 10px 0;
@@ -355,7 +384,7 @@ footer {
         margin-bottom: 8px;
       }
     }
-  
+
     #input-wrapper {
       position: unset;
       display: flex;
@@ -367,7 +396,7 @@ footer {
       input {
         width: 100%;
       }
-  
+
       button {
         width: 150px;
         margin-top: 10px;
@@ -403,7 +432,7 @@ footer {
   #mobile-logo::after {
     position: absolute;
     background: rgb(29 29 29);
-    content: '';
+    content: "";
     bottom: 0;
     left: 0;
     transform: translateY(-100%);
@@ -415,8 +444,7 @@ footer {
   #movie-container {
     grid-template-columns: repeat(auto-fit, minmax(150px, 150px));
 
-    #movie-card  {
-
+    #movie-card {
       button {
         width: 35px;
         height: 35px;
@@ -425,17 +453,16 @@ footer {
   }
 
   #movie-info {
-     h1 {
+    h1 {
       font-size: 1rem;
-     }
+    }
 
-     p {
-      font-size: .8rem;
-     }
+    p {
+      font-size: 0.8rem;
+    }
   }
 
   #iframe-container {
-
     button {
       font-size: 1rem;
     }
