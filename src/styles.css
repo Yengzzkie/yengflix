@@ -84,6 +84,10 @@ header {
     display: flex;
     list-style: none;
 
+    #search {
+      display: none;
+    }
+
     li {
       position: relative;
       color: #fff;
@@ -131,12 +135,20 @@ header {
       }
 
       span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         visibility: hidden;
         position: absolute;
-        font-size: .8rem;
-        color: rgb(140, 140, 140);
+        background: rgba(158, 158, 158, 0.556);
+        color: #fff;
+        font-size: 0.5rem;
+        text-align: center;
         right: 8%;
         top: 50%;
+        border-radius: 50%;
+        height: 15px;
+        width: 15px;
         transform: translateY(-50%);
         cursor: pointer;
       }
@@ -151,7 +163,8 @@ header {
       cursor: pointer;
     }
 
-    button:hover, button:active {
+    button:hover,
+    button:active {
       color: #fff;
       background: var(--red-background);
     }
@@ -175,7 +188,6 @@ header {
   color: #fff;
   font-size: 2rem;
   border: none;
-  /* height: 50px; */
   padding: 10px 8px;
   z-index: 9999;
   cursor: pointer;
@@ -238,7 +250,7 @@ header {
       transition: transform 0.8s ease;
 
       i {
-        color: var(--red-background)
+        color: var(--red-background);
       }
     }
 
@@ -378,15 +390,6 @@ footer {
     left: 0;
     border-top: 3px solid #fff;
     border-radius: 5px 5px 0 0;
-    /* transform: translateY(-100%); */
-    /* background: linear-gradient(
-      90deg,
-      rgb(29, 29, 29),
-      rgba(29, 29, 29, 0.95),
-      rgba(29, 29, 29, 0.85),
-      rgba(29, 29, 29, 0.65)
-    ); */
-    /* backdrop-filter: blur(5px); */
     height: 60px;
     width: 100vw;
     padding: 1rem 0;
@@ -399,18 +402,23 @@ footer {
     }
 
     ul {
-      /* flex-direction: column; */
-      justify-content: space-between;
+      justify-content: space-evenly;
       align-items: center;
       width: 100%;
-      padding: 0 2rem;
-      /* margin: 50px 0; */
+
+      #search {
+        display: flex;
+      }
 
       li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         margin-bottom: 25px;
 
         span {
-          display: none;
+          color: #bebebe;
+          font-size: 0.7rem;
         }
 
         i:hover {
@@ -447,12 +455,11 @@ footer {
     );
     backdrop-filter: blur(5px);
     height: 250px;
-    /* transform: translateY(0); */
   }
 
   #hamburger {
     display: block;
-    position: fixed; /* Change 'fixed' to 'absolute' */
+    position: fixed;
     top: 3%;
     right: 5%;
     background: transparent;
@@ -503,7 +510,7 @@ footer {
       font-size: 0.8rem;
 
       i {
-        color: var(--red-background)
+        color: var(--red-background);
       }
     }
   }
