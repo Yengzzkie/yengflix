@@ -8,6 +8,8 @@ import addToMyList from './addToMyList.js';
 // i don't know how to change the movie.title to movie.name when querying for
 // TV series :)
 export default async function displaySeries(movies) {
+  window.scrollTo(0, 0); //scrolls the page to top when next button is clicked
+
     try {
       const baseImgURL = "https://image.tmdb.org/t/p/w500/";
   

@@ -6,6 +6,7 @@ import addToMyList from './addToMyList.js';
 // this is the main function in displaying the movies may it be the
 // 'Popular' or 'Searched' movies by user
 export default async function displayMovies(movies) {
+  window.scrollTo(0, 0);
   try {
     const baseImgURL = 'https://image.tmdb.org/t/p/w500/';
 
