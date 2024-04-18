@@ -6,6 +6,7 @@ import searchSeries from './modules/searchSeries.js';
 import { getNowPlayingMovies } from './modules/getNowPlayingMovies.js';
 import { resetCurrentPage } from './modules/displayCurrentPage.js';
 import displayMyList from './modules/displayMyList.js';
+import intro from './modules/intro.js';
 
 const searchMovieInput = document.getElementById('search-query');
 const searchMovieBtn = document.getElementById('search-movie-btn');
@@ -68,6 +69,10 @@ searchMovieBtn.addEventListener('click', () => {
 clearField.addEventListener('click', () => {
   searchMovieInput.value = '';
 })
+
+intro();
+
+
 
 displayNowPlayingMovies(); // initilize the list of now playing movies on page load
 
