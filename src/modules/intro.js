@@ -12,5 +12,5 @@ export default function intro() {
 
     setTimeout(() => {
         modal.close()
-    } ,3500)
+    } ,3000)
 }

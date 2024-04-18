@@ -71,9 +71,6 @@ clearField.addEventListener('click', () => {
 })
 
 intro();
-
-
-
 displayNowPlayingMovies(); // initilize the list of now playing movies on page load
 
 export { searchMovieInput };
