@@ -348,14 +348,28 @@ header {
     color: #fff;
     font-size: 2rem;
     border: none;
+    width: auto;
     padding: 10px;
-    transform: rotate(180deg);
     transition: transform 0.3s linear;
     cursor: pointer;
   }
 
+  .server-wrapper {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 2%;
+    right: 2%;
+
+    button {
+      position: unset;
+      font-size: 1rem;
+      margin-bottom: 5px;
+    }
+  }
+
   button:hover {
-    transform: rotate(180deg) scale(1.1);
+    transform: scale(1.1);
     color: var(--red-background);
   }
 
@@ -516,10 +530,14 @@ footer {
   }
 
   #iframe-container {
-    button {
-      font-size: 1rem;
+    
+    & .server-wrapper {
+      button {
+        font-size: .5rem;
+      }
+  
     }
-
+    
     iframe {
       height: 300px;
     }
