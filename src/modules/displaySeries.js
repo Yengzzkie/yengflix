@@ -61,6 +61,7 @@ export default async function displaySeries(movies) {
         
         watchBtn.addEventListener("click", () => {
           app.innerHTML = "";
+          window.scrollTo(0, 0);
           watchSeries(movie.name, movie.id, movie.backdrop_path);
         });
 
