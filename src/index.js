@@ -66,8 +66,9 @@ searchMovieBtn.addEventListener('click', () => {
   }
 });
 
-clearField.addEventListener('click', () => {
+clearField.addEventListener('click', (e) => {
   searchMovieInput.value = '';
+  e.preventDefault();
 })
 
 intro();
