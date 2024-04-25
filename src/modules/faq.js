@@ -1,13 +1,13 @@
 const FAQ = [
   {
-    question: "Is streaming free?",
-    answer:
-      "Oh yeah, it is 100% FREE! However, there are ads on the video every couple of minutes when you try to click on it. You know, developers need to eat too ;). They are completely harmless, just close the ads when they pop up.",
-  },
-  {
     question: "Is this site legit?",
     answer:
       "Yes! It is more legit than your imaginary girlfriend.",
+  },
+  {
+    question: "Is streaming free?",
+    answer:
+      "Oh yeah, it is 100% FREE! However, there are ads on the video every couple of minutes when you try to click on it. You know, developers need to eat too ;). They are completely harmless, just close the ads when they pop up.",
   },
   {
     question: "Why do some videos say 'Error 404'?",
